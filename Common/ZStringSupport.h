@@ -26,9 +26,9 @@ namespace String {
 	std::basic_string<CharType> to_string(const quat_base<QuatType>& q) {
 		std::basic_string<CharType> str;
 		str += "quat[" 
-			+ String::ToString<CharType>::to_string(q[0])
-			+ String::ToString<CharType>::to_string(q[1])
-			+ String::ToString<CharType>::to_string(q[2])
+			+ String::ToString<CharType>::to_string(q[0]) + ", "
+			+ String::ToString<CharType>::to_string(q[1]) + ", "
+			+ String::ToString<CharType>::to_string(q[2]) + ", "
 			+ String::ToString<CharType>::to_string(q[3]) 
 			+ "]";
 		return str;

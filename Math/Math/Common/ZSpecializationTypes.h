@@ -1,0 +1,9 @@
+#pragma once
+#include "../Specialization/ZBools.h"
+#include "../Specialization/ZQuatT.h"
+#include "../Specialization/ZMat2x2T.h"
+#include "../Specialization/ZMat3x3T.h"
+#include "../Specialization/ZMat4x4T.h"
+#include "../Specialization/ZVec2T.h"
+#include "../Specialization/ZVec3T.h"
+#include "../Specialization/ZVec4T.h"

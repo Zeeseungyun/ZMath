@@ -2,7 +2,7 @@
 #include "ZMath.h"
 #include "Common/ZStringSupport.h"
 
-int main() {
+int test_func() {
 	using namespace Zee;
 	using std::cout;
 	using std::endl;

@@ -6,14 +6,7 @@ int test_func() {
 	using namespace Zee;
 	using std::cout;
 	using std::endl;
-	Zee::Math::vec_base<float, 2> vf2;
-	Zee::Math::vec_base<double, 2> vd2;
-	Zee::Math::promotion_t< Zee::Math::vec_base<double, 2>, Zee::Math::vec_base<float, 2>> dd;
-	Zee::Math::promotion_t<float, double> ffasdf;
-
-	double() + int();
-
-
+	
 	vec2 v = { 5, -5 };
 	cout << " v : " << Math::to_string<char>(v) << endl;
 	v = Math::clamp<float>(v, 0, 3);
@@ -28,8 +21,6 @@ int test_func() {
 
 	mat2 m = { identity[0] * 2.0f, identity[1] * 0.5f };
 	cout << "m : " <<Math::to_string<char>(m) << endl;
-	m.determinant();
-	m.get_inverse();
 	
 	mat3 m3;
 	m3[0] = vec3::constant::unit_x;

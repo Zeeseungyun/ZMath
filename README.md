@@ -10,36 +10,45 @@
 하지만 템플릿의 타입추론 방식때문에 그게 가능하지가 않았다. 설령 그것을 달성한다고 하더라도 직관성이나 성능을 잃을 것 같았다.
 그래서 그 소소한 불편함은 감수하는 식으로 하도록 했다. 
 특수화된 클래스들 vec2, vec3 등에서는 반환타입을 명시하지않게 다시 특수화를 해두어 불편함을 조금이나마 덜었다.
+```
   ex) int a = clamp<int>(2,0,1);   vec2 v = clamp<float>(vec2{0,1}, 0, 1); //common 헤더에 있는 함수 사용시
   ex) vec2 v = Math::dot<float>(vec2{1,2}, vec2{3,4}); //common 헤더에 있는 함수 사용시
   ex) vec2 v = vec2::common::dot(vec2{1,2}, vec2{3,4}); //특수화된 함수 사용시
   ex) auto lenSq = v.dot(v); //멤버 함수 사용시
-  
-이 라이브러리에서 제공하는 기능.
+```
+
+# 제공하는 기능.
 
 ## 1. 편하게 사용할 수 있는 이니셜라이져.
 ```cpp
 vec2 v = {1,2};
- mat2 m = {v, v};
+mat2 m = {v, v};
 m = {1, 2, 3, 4};
 ```
+
 ## 2. 연산자 오버로딩
-  vec2 v = v1 + v2;
-  mat2 m = {v, v};
-  v *= m;
-  bool b = v == m[0];
+```cpp
+vec2 v = v1 + v2;
+mat2 m = {v, v};
+v *= m;
+bool b = v == m[0];
+```
 
 ## 3. 상수 표현식의 사용 가능.
-  constexpr vec2 unit_x = vec2{1, 0};
-  constexpr vec_base<float, 10> = vec_base<float, 10>{1,2,3,4,5,6,7,8,9};
+```cpp
+constexpr vec2 unit_x = vec2{1, 0};
+constexpr vec_base<float, 10> = vec_base<float, 10>{1,2,3,4,5,6,7,8,9};
+```
 
 ## 4. 잘못된 표현식을 사용하는 경우.
 동적 어설션을 정적 어설션으로 바꿀 수 있게 매크로로 처리하였는데 정적 어설션이 가끔 되려 어디서 틀렸는지 찾기가 어려움을 느꼈다.
 그래서, 에러를 찾아내기 최대한 편하게 동적 어설션을 하도록 해두었다.
-  vec2 v;
-  mat3 m;
-  v *= m; //기본 값은 동적 어설션.
-  
+```
+vec2 v;
+mat3 m;
+v *= m; //기본 값은 동적 어설션.
+```
+
 ## 5. 나눗셈에서..
 나눗셈은 모두 div<type>(param0, param1); 함수를 사용했다.
 division by zero에 대한 핸들링을 이곳에서 추가 할 수 있도록 하는 의도다.
